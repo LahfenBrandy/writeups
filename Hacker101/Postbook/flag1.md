@@ -1,0 +1,10 @@
+# Vulnerability: IDOR
+
+After creating and signing into an account, view any post displayed by clicking on any of the "Hello ....." messages
+
+Notice the url has an id parameter on it
+
+Change this id to 2 to get flag1 of this lab
+
+This should have been a private post
+
