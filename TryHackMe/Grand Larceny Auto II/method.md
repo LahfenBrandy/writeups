@@ -127,7 +127,7 @@ Once submitted, the flag should be returned.
 
 
 # Automate the process
-Automate the whole process of sign-submit with a python script;
+We can automate the whole sign-submit process with a python script;
 ```
 import hmac
 import hashlib
