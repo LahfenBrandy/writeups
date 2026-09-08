@@ -14,7 +14,9 @@ GameController.cs ### Tells us how ReportCheckpoint from PoPClient is called
 In the PoPClient file, our interest lies in the lines 19, 129, 135, 144, 154 and 166 code blocks.
 ```c#
 private static readonly byte[] SignKey = Encoding.UTF8.GetBytes("gla2_crew_sign_v1_2f9b6c8ad14e");
-
+ |
+ |
+ V
 private static string Sign(string msg) ### <--- SIGNS OUR SIGNATURE (SIG) WITH THE SignKey ###
 {
  byte[] array = HMACSHA256.HashData(SignKey, Encoding.UTF8.GetBytes(msg));
@@ -26,7 +28,9 @@ private static string Sign(string msg) ### <--- SIGNS OUR SIGNATURE (SIG) WITH T
  }
  return stringBuilder.ToString();
 }
-
+ |
+ |
+ V
 public string DeriveStaffRole() ### <--- BASED ON OUR STASH ORDER RETURNED, IT DERIVES A ROLE FOR US ###
 {
  string s = "heat5_stash" + StashOrder[0] + "_stash" + StashOrder[1] + "_stash" + StashOrder[2] + "_vault";
@@ -39,7 +43,9 @@ public string DeriveStaffRole() ### <--- BASED ON OUR STASH ORDER RETURNED, IT D
  }
  return stringBuilder.ToString();
 }
-
+ |
+ |
+ V
 
 ### Initiates a session for us plus our stash order (stash order changes from session to session) ###
 public void StartSession()
@@ -47,7 +53,9 @@ public void StartSession()
  Status = "opening session...";
  Post("/session", "{}");
 }
-
+ |
+ |
+ V
 ### Marks how far we've completed the game, like a savepoint of some sort ### 
 public void ReportCheckpoint(string step)
 {
@@ -57,7 +65,9 @@ public void ReportCheckpoint(string step)
   Post("/checkpoint", "{\"session_id\":\"" + sessionId + "\",\"step\":\"" + step + "\",\"token\":\"" + token + "\",\"sig\":\"" + text + "\"}");
  }
 }
-
+ |
+ |
+ V
 ### Once we reach "step: vault", we can claim the flag from here ###
 public void Claim()
 {
